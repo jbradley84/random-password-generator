@@ -2,13 +2,17 @@
 var generatePassword = function () {
 
 
-  // Establish password length between 8 and 128 characters
-  var passwordLength = parseInt(window.prompt("How long do you want your password to be? Please enter a number between 8 and 128.")); /*{
-    if (passwordLength < 8 || passwordLength > 128) {
-      window.alert("You must choose a password length between 8 and 128 characters long!");
-    }
-  }*/
+  // establish password length between 8 and 128 characters
+  var passwordLength = parseInt(window.prompt("How long do you want your password to be? Please enter a number between 8 and 128.")); 
+  
+  
+  // validate prompt answer
+  if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    window.alert("You must choose a password length between 8 and 128 characters long!");
+    return generatePassword();
+  }
 
+  
   // Create empty password character array
   var passwordCharacterArray = [];
 
@@ -77,6 +81,8 @@ var generatePassword = function () {
   var randomPasswordInput = document.querySelector("#password").innerHTML = randomPassword;
 }
 
+
 // on click, run generatePassword
 document.getElementById("generate").onclick = function() {generatePassword()};
+
 
