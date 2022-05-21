@@ -56,7 +56,6 @@ var generatePassword = function () {
 
 
   // function to shuffle passwordCharacterArray into random order using Fisher Yates Method
-  let arr = passwordCharacterArray;
 
   let arrayShuffle = function (arr) {
     let newPos, temp;
@@ -78,7 +77,12 @@ var generatePassword = function () {
   let randomPassword = shuffledCharacterArray.slice(0, passwordLength).join("");
   console.log(randomPassword);
   console.log(passwordLength);
+
+  // display randomPassword in textarea with ID "#password"
+  var randomPasswordInput = document.querySelector("#password").innerHTML = randomPassword;
 }
+
+
 
 // Write password to the #password input
 //function writePassword() {
@@ -90,5 +94,5 @@ var generatePassword = function () {
 //}
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
+//generateBtn.addEventListener("click", generatePassword());
 generatePassword();
