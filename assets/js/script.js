@@ -1,7 +1,3 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-
 // function to generate random password
 var generatePassword = function () {
 
@@ -52,7 +48,6 @@ var generatePassword = function () {
       passwordCharacterArray.push("!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~");
     }
   };
-  console.log(passwordCharacterArray);
 
 
   // function to shuffle passwordCharacterArray into random order using Fisher Yates Method
@@ -69,30 +64,19 @@ var generatePassword = function () {
     return passwordCharacterArray;
   };
 
+
   // create new shuffledCharacterArray using shuffle function
   let shuffledCharacterArray = arrayShuffle(passwordCharacterArray);
-  console.log(shuffledCharacterArray);
+
 
   // create randomPassword by slicing shuffledCharacterArray at value equal to passwordLength, remove commas
   let randomPassword = shuffledCharacterArray.slice(0, passwordLength).join("");
-  console.log(randomPassword);
-  console.log(passwordLength);
+  
 
   // display randomPassword in textarea with ID "#password"
   var randomPasswordInput = document.querySelector("#password").innerHTML = randomPassword;
 }
 
+// on click, run generatePassword
+document.getElementById("generate").onclick = function() {generatePassword()};
 
-
-// Write password to the #password input
-//function writePassword() {
-//var password = generatePassword();
-// var passwordText = document.querySelector("#password");
-
-//passwordText.value = password;
-
-//}
-
-// Add event listener to generate button
-//generateBtn.addEventListener("click", generatePassword());
-generatePassword();
