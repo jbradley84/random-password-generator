@@ -1,3 +1,6 @@
+// empty password character array
+var passwordCharacterArray = [];
+
 // function to generate random password
 var generatePassword = function () {
 
@@ -13,10 +16,6 @@ var generatePassword = function () {
   }
 
   
-  // Create empty password character array
-  var passwordCharacterArray = [];
-
-
   // establish password makeup
   // confirm Y/N lowercase letters
   var lowerCase = window.confirm("Do you want your password to contain lowercase letters?"); {
@@ -60,8 +59,7 @@ var generatePassword = function () {
   }
 
 
-  // function to shuffle passwordCharacterArray into random order using Fisher Yates Method
-
+  // function to shuffle passwordCharacterArray into random order using Fisher-Yates Method
   let arrayShuffle = function (arr) {
     let newPos, temp;
 
