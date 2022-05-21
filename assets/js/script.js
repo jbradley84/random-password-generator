@@ -1,6 +1,7 @@
 // empty password character array
 var passwordCharacterArray = [];
 
+
 // function to generate random password
 var generatePassword = function () {
 
@@ -8,16 +9,46 @@ var generatePassword = function () {
   // establish password length between 8 and 128 characters
   var passwordLength = parseInt(window.prompt("How long do you want your password to be? Please enter a number between 8 and 128.")); 
   
-  
   // validate prompt answer
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     window.alert("You must choose a password length between 8 and 128 characters long!");
     return generatePassword();
   }
 
+
+  // call function to establish password character makeup
+  passwordCharacterMakeup();
+
+
+  // shuffle passwordCharacterArray into random order using Fisher-Yates Method
+  let arrayShuffle = function (arr) {
+    let newPos, temp;
+
+    for (let i = arr.length - 1; i > 0; i--) {
+      newPos = Math.floor(Math.random() * (i + 1));
+      temp = arr[i];
+      arr[i] = arr[newPos];
+      arr[newPos] = temp;
+    }
+    return passwordCharacterArray;
+  };
+
+
+  // create new shuffledCharacterArray using shuffle function
+  let shuffledCharacterArray = arrayShuffle(passwordCharacterArray);
+
+
+  // create randomPassword by slicing shuffledCharacterArray at value equal to passwordLength, remove commas
+  let randomPassword = shuffledCharacterArray.slice(0, passwordLength).join("");
   
-  // establish password makeup
-  // confirm Y/N lowercase letters
+
+  // display randomPassword in textarea with ID "#password"
+  var randomPasswordInput = document.querySelector("#password").innerHTML = randomPassword;
+}
+
+
+// function to establish password character makeup
+var passwordCharacterMakeup = function() {
   var lowerCase = window.confirm("Do you want your password to contain lowercase letters?"); {
     // if TRUE, push lowercase letters into passwordCharacterArray
     if (lowerCase) {
@@ -55,34 +86,8 @@ var generatePassword = function () {
   // validate user has selected at least one character type
   if (!passwordCharacterArray.length) {
     window.alert("You must choose at least one password character type!");
-    return generatePassword();
+    return passwordCharacterMakeup();
   }
-
-
-  // function to shuffle passwordCharacterArray into random order using Fisher-Yates Method
-  let arrayShuffle = function (arr) {
-    let newPos, temp;
-
-    for (let i = arr.length - 1; i > 0; i--) {
-      newPos = Math.floor(Math.random() * (i + 1));
-      temp = arr[i];
-      arr[i] = arr[newPos];
-      arr[newPos] = temp;
-    }
-    return passwordCharacterArray;
-  };
-
-
-  // create new shuffledCharacterArray using shuffle function
-  let shuffledCharacterArray = arrayShuffle(passwordCharacterArray);
-
-
-  // create randomPassword by slicing shuffledCharacterArray at value equal to passwordLength, remove commas
-  let randomPassword = shuffledCharacterArray.slice(0, passwordLength).join("");
-  
-
-  // display randomPassword in textarea with ID "#password"
-  var randomPasswordInput = document.querySelector("#password").innerHTML = randomPassword;
 }
 
 
