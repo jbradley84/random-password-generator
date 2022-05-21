@@ -53,6 +53,12 @@ var generatePassword = function () {
     }
   };
 
+  // validate user has selected at least one character type
+  if (!passwordCharacterArray.length) {
+    window.alert("You must choose at least one password character type!");
+    return generatePassword();
+  }
+
 
   // function to shuffle passwordCharacterArray into random order using Fisher Yates Method
 
