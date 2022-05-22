@@ -13,7 +13,7 @@
 * JS
 
 ## Website
-
+https://jbradley84.github.io/random-password-generator/
 
 ![ScreenShot](./assets/images/random-password-generator-screenshot.png)
 
