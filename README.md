@@ -1,11 +1,14 @@
 # Random Password Generator
 
 ## Purpose
-* Create a random password with the click of a button 
-* Prompt user to input desired password length between 8 and 128 characters long
-* Prompt user to select what character types are used in password
-* Allow user to create additional random passwords by clicking button again
-* Ensure layout is responsive
+* An application that enables users to generate random passwords with the click of a button 
+* Random passwords generated with user selected password criteria
+    * user INPUT: password length between 8 and 128 characters
+    * user CONFIRM: password contains lowercase letters, Y/N
+    * user CONFIRM: password contains uppercase letters, Y/N
+    * user CONFIRM: password contains numbers, Y/N
+    * user CONFIRM: password contains special characters, Y/N
+* Responsive layout design
 
 ## Built With
 * HTML
